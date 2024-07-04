@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vHdX2KcSCgV9aodTw9/C9RmWdWrWNtXJjPnx2iUIyhRP3QfdbwkOe6mO05YXVjB0WbuI8ZnGSp63fQvsXPxJww==",
+  "dgSpecHash": "8OH4da6dkYkp3s8srnLNMEjo2/KxVMyB6Tyc9M7xkV2cTuyGw6nmaGgg4dcp+IHa637V2bjBWsIm9JW3gf7P0A==",
   "success": true,
   "projectFilePath": "/Users/gunhee/Documents/GitHub/ASPAPP/BlazorApp/BlazorApp/BlazorApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/gunhee/.nuget/packages/bootstrap/5.3.3/bootstrap.5.3.3.nupkg.sha512"
+  ],
   "logs": []
 }
