@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASPAPP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2f0ddd9b2dc91c93e872732413966a19d70eabf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad1c31b6c4df1d5bac89e70443478f87f1c6ca3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASPAPP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASPAPP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

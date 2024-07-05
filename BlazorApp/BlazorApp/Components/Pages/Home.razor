@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject GamesClient Client
+@attribute [StreamRendering]
 
 <PageTitle>Salin Catalog</PageTitle>
 <div class="mt-2">
@@ -49,14 +50,13 @@ else
 }
 
 @code{
-    private GamesClient client = new();
     private GameSummary[]? games;
     
     private static string GameUrl(int id) => $"/editgame/{id}";
     
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        games = Client.GetGames();
+        games = await Client.GetGamesAsync();
     }
 
     private string GetDelteMoalId(GameSummary game)

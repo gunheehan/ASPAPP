@@ -8,31 +8,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="486d5e5e-3c4b-4868-9d72-057b2a439107" name="Changes" comment="blazer app 삭제">
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GamesClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GenresClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/EditGame.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Models/GameDetails.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Models/GameSummary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Models/Genre.cs" afterDir="false" />
+    <list default="true" id="486d5e5e-3c4b-4868-9d72-057b2a439107" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Converters/StringConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ASPAPP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ASPAPP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/.idea/.idea.BlazorApp/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Layout/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GamesClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GamesClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GenresClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Clients/GenresClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/DeleteGame.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/DeleteGame.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/EditGame.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/EditGame.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/Pages/Home.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Components/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Models/GameDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Models/GameDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/bin/Debug/net8.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/apphost" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/apphost" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/ref/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/ref/BlazorApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/refint/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/Debug/net8.0/refint/BlazorApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorApp/BlazorApp/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/.idea/.idea.GameStore.Api.dir/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Endpoints/GamesEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Endpoints/GamesEndpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Entities/Genre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Entities/Genre.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/GameStore.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/GameStore.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/games.http" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/games.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/genres.http" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/genres.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/Debug/net8.0/GameStore.Api.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/GameStore.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/GameStore.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/GameStore.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/GameStore.Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GameStore.Api/GameStore.Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ASPAPP.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ASPAPP.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ASPAPP.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ASPAPP.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/gunhee/Documents/GitHub/ASPAPP/obj/Debug/net6.0/ASPAPP.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/gunhee/Documents/GitHub/ASPAPP/obj/Debug/net6.0/ASPAPP.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,6 +155,7 @@
       <workItem from="1719384908220" duration="413000" />
       <workItem from="1719471326929" duration="6261000" />
       <workItem from="1719965494746" duration="1206000" />
+      <workItem from="1720164052133" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="폴더 구조 변경">
       <created>1719384925359</created>
@@ -146,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719965588029</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="버전 오류">
+      <option name="closed" value="true" />
+      <created>1720145745794</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720145745794</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +220,7 @@
     <MESSAGE value="폴더 위치 변경" />
     <MESSAGE value="microsoft,EntityFrameworkCore 패키지 임포트" />
     <MESSAGE value="blazer app 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="blazer app 삭제" />
+    <MESSAGE value="버전 오류" />
+    <option name="LAST_COMMIT_MESSAGE" value="버전 오류" />
   </component>
 </project>
