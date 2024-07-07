@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Uwtfy/hEsZs=",
+  "success": true,
+  "projectFilePath": "/Users/gunhee/Documents/GitHub/ASPAPP/GameStore/GameStore/GameStore.csproj",
+  "expectedPackageFiles": [
+    "/Users/gunhee/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/gunhee/.nuget/packages/minimalapis.extensions/0.11.0/minimalapis.extensions.0.11.0.nupkg.sha512",
+    "/Users/gunhee/.nuget/packages/minivalidation/0.8.0/minivalidation.0.8.0.nupkg.sha512"
+  ],
+  "logs": []
+}
