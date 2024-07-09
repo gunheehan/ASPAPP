@@ -27,14 +27,14 @@ else
         @foreach (var game in games)
         {
             <tr>
-                <td>@game.Id</td>
-                <td>@game.Name</td>
-                <td>@game.Genre</td>
-                <td class ="text-end">@game.Price.ToString("C2")</td>
-                <td>@game.ReleaseDate</td>
+                <td>@game.id</td>
+                <td>@game.name</td>
+                <td>@game.genre</td>
+                <td class ="text-end">@game.price.ToString("C2")</td>
+                <td>@game.releaseDate</td>
                 <td>
                     <div class="d-flex">
-                        <a class="btn btn-primary me-2" role="button" href ="@GameUrl(game.Id)">
+                        <a class="btn btn-primary me-2" role="button" href ="@GameUrl(game.id)">
                             <i class="bi bi-pencil"></i>
                         </a>
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="@GetDelteMoalId(game)">

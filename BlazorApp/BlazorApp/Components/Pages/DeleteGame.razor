@@ -28,18 +28,18 @@
 
     protected override void OnParametersSet()
     {
-        title = $"Delete {Game?.Name}?";
+        title = $"Delete {Game?.name}?";
     }
     
     public static string GetModalId(GameSummary? game)
     {
         ArgumentNullException.ThrowIfNull(game);
-        return $"deleteModal-{game.Id}";
+        return $"deleteModal-{game.id}";
     }
  
     private async Task ConfirmAsync()
     {
-        await Client.DeleteGameAsync(Game!.Id);
+        await Client.DeleteGameAsync(Game!.id);
         NavigationManager.Refresh();
     }
 }
