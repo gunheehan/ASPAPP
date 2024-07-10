@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31d5745bd9d1b85267950690a3e4e40f96d0b8df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f12a34d3bcdc8b01d61a87a9a058fc869ea4cb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,28 +8,47 @@ public static class SignEndPoint
     {
         var group = routes.MapGroup("/Users");
 
-        group.MapGet("/", async (IUsersRepository repository, User user) =>
+        group.MapGet("/", async (IUsersRepository repository, Dtos.UserDto user) =>
         {
             User? newuser = await repository.GetUserInfoAsync(user.Email);
 
             if (newuser is null)
-                await repository.CreateUserAsync(user);
+            {
+                User addUser = new User()
+                {
+                    Nickname = user.Nickname,
+                    Email = user.Email
+                };
+                await repository.CreateUserAsync(addUser);
+            }
 
             return Results.Ok(newuser);
         });
 
-        group.MapPost("/", async (IUsersRepository repository, User user) =>
+        group.MapPost("/", async (IUsersRepository repository, Dtos.UserDto user) =>
         {
-            await repository.CreateUserAsync(user);
+            User newuser = new User()
+            {
+                Nickname = user.Nickname,
+                Email = user.Email
+            };
+            
+            await repository.CreateUserAsync(newuser);
 
-            return Results.Ok(user);
+            return Results.Ok(newuser);
         });
 
-        group.MapPut("/", async (IUsersRepository repository, User user) =>
+        group.MapPut("/", async (IUsersRepository repository, Dtos.UserDto user) =>
         {
-            await repository.UpdateUserAsync(user);
+            User newuser = new User()
+            {
+                Nickname = user.Nickname,
+                Email = user.Email
+            };
+            
+            await repository.UpdateUserAsync(newuser);
 
-            return Results.Ok(user);
+            return Results.Ok(newuser);
         });
         
     return group;
