@@ -4,7 +4,7 @@
 
 ```powershell
 $sa_password = "[SA PASSWORD HERE]"
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pass@word123" -e "MSSQL_PID=Developer" -e "MSSQL_USER=SA" -p 1533:1533 -v sqlvolume:/var/opt/mssql -d --name=demouser mcr.microsoft.com/azure-sql-edge
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pass@word123" -e "MSSQL_PID=Developer" -e "MSSQL_USER=SA" -p 2000:1433 -v sqlvolume:/var/opt/mssql -d --name=demouser mcr.microsoft.com/azure-sql-edge
 ```
 
 ## Setting the connection string ro secret manager
