@@ -4,7 +4,7 @@ namespace SignApi.SignEndPoint;
 
 public static class SignEndPoint
 {
-    public static RouteGroupBuilder MapSignEndPoint(this IEndpointRouteBuilder routes)
+    public static void MapSignEndPoint(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/Users");
 
@@ -51,7 +51,7 @@ public static class SignEndPoint
             return Results.Ok(newuser);
         });
         
-    return group;
+    //return group;
     }
 
     //DataBase Add 
