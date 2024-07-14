@@ -19,12 +19,12 @@ public class EntityFrameWorkUsersRepository : IUsersRepository
     public async Task CreateUserAsync(User user)
     {
         dbContext.Users.Add(user);
-        dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync();
     }
 
     public async Task UpdateUserAsync(User user)
     {
         dbContext.Users.Update(user);
-        dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync();
     }
 }

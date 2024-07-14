@@ -7,7 +7,7 @@ builder.Services.AddRepositories(builder.Configuration);
 
 var app = builder.Build();
 
-app.Services.InitalizeDbAsync();
+await app.Services.InitalizeDbAsync();
 
 app.MapSignEndPoint(); 
 app.Run();

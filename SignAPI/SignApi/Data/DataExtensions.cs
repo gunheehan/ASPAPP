@@ -15,7 +15,7 @@ public static class DataExtensions
     public static IServiceCollection AddRepositories(this IServiceCollection service,
         IConfiguration configuration)
     {
-        var connString = configuration.GetConnectionString("UserContext");
+        var connString = configuration.GetConnectionString("mssql");
         service.AddSqlServer<UserContext>(connString).AddScoped<IUsersRepository, EntityFrameWorkUsersRepository>();
 
         return service;
