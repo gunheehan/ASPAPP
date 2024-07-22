@@ -1,31 +1,14 @@
-using Microsoft.EntityFrameworkCore;
+using Azure.ResourceManager.MySql.Models;
 using SurveyDB.Data;
 
-
-var dbHost = "localhost";
-var dbName = "loginDB-mysql-container";
-var dbPawword = "salin2017";
-var connectionString = $"Data source={dbHost}; Initial Catalog={dbName};User ID=root;Password={dbPawword}";
-
-
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString));
+builder.Services.AddControllersWithViews();
+// builder.Services.AddDbContext<AppDbContext>(options =>
+//     options.UseMySql(builder.Configuration.GetConnectionString("AppDbContext"), new Version(9,0,0)));
+
 
 var app = builder.Build();
 
-using var scope = app.Services.CreateScope();
-var services = scope.ServiceProvider;
-var context = services.GetRequiredService<AppDbContext>();
-
-try
-{
-    await context.Database.MigrateAsync();
-}
-catch (Exception ex)
-{
-    Console.WriteLine("MigrationError : ");
-    Console.WriteLine(ex);
-}
-
+app.Services.InitializeDb();
 
 app.Run();
