@@ -14,7 +14,6 @@ public class GameDetails
     [Required(ErrorMessage = "The Genre filed is required")]
     [JsonConverter(typeof(StringConverter))]
     public string? GenreId { get; set; }
-    [Range(1, 100)]
-    public decimal Price { get; set; }
+     public decimal Price { get; set; }
     public DateOnly ReleaseDate { get; set; }
 }

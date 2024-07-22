@@ -1,0 +1,44 @@
+@page "/"
+@using Microsoft.EntityFrameworkCore
+@using SurveyDB.Data
+@inject IServiceProvider ServiceProvider
+
+
+<h3>home</h3>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        using var scope = ServiceProvider.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        
+        var dynamicColumns = new Dictionary<string, Type>();
+        var datas = new Dictionary<string, ColumeDataType>
+        {
+            { "Column1", ColumeDataType.String },
+            { "Column2", ColumeDataType.Int },
+            { "Column3", ColumeDataType.Bool }
+        };
+
+        foreach (var data in datas)
+        {
+            switch (data.Value)
+            {
+                case ColumeDataType.String:
+                    dynamicColumns.Add(data.Key, typeof(string));
+                    break;
+                case ColumeDataType.Int:
+                    dynamicColumns.Add(data.Key, typeof(int));
+                    break;
+                case ColumeDataType.Bool:
+                    dynamicColumns.Add(data.Key, typeof(bool));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        context.ConfigureDynamicTable(dynamicColumns, "Test_DB_Async");
+        await context.Database.MigrateAsync();
+    }
+}
