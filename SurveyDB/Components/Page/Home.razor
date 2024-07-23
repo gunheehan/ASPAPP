@@ -1,0 +1,23 @@
+@page "/home"
+@using Newtonsoft.Json
+@using SurveyDB.Models
+@using SurveyDB.Repositories
+@inject ISurveyRepository DbRepository
+
+
+<h3>home</h3>
+
+@code {
+    protected override void OnInitialized()
+    {
+        SurveyForm newForm = new SurveyForm();
+        newForm.Title = "Survey DB Test";
+
+        Dictionary<string, string> newQuestion = new Dictionary<string, string>();
+        newQuestion.Add("질문 1", "해당 프로그램은 오류없지 진행되는가");
+        newQuestion.Add("질문 2", "데이터 데이스가 잘 업데이트 되고 있는가");
+        newForm.Questions = JsonConvert.ToString(newQuestion);
+        
+        DbRepository.CreateForm(newForm);
+    }
+}

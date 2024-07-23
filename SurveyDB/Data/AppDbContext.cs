@@ -1,6 +1,6 @@
-using System.Text.Json;
-using Azure.ResourceManager.MySql.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Newtonsoft.Json;
 using SurveyDB.Entities;
 
 namespace SurveyDB.Data;
@@ -33,54 +33,29 @@ public class AppDbContext : DbContext
     public DbSet<SurveyForm> SurveyForms => Set<SurveyForm>();
     public DbSet<SurveyAnswer> SurveyAnswers => Set<SurveyAnswer>();
 
-    // public void ConfigureDynamicTable(Dictionary<string, Type> dynamicColumns, string tableName)
-    // {
-    //     _dynamicColumns = dynamicColumns;
-    //     _tableName = tableName;
-    // }
-    //
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     base.OnModelCreating(modelBuilder);
-    //
-    //     if (_dynamicColumns != null && !string.IsNullOrEmpty(_tableName))
-    //     {
-    //         var entityBuilder = modelBuilder.Entity<DynamicTable>();
-    //
-    //         entityBuilder.ToTable(_tableName);
-    //         entityBuilder.HasKey(e => e.Id);
-    //
-    //         foreach (var column in _dynamicColumns)
-    //         {
-    //             var propertyBuilder = entityBuilder.Property(column.Value, column.Key);
-    //             if (column.Value == typeof(string))
-    //             {
-    //                 propertyBuilder.IsRequired(false);
-    //             }
-    //         }
-    //     }
-    // }
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
+        var dictionaryConverter = new ValueConverter<Dictionary<string, object>, string>(
+            v => JsonConvert.SerializeObject(v),
+            v => JsonConvert.DeserializeObject<Dictionary<string, object>>(v)
+        );
+
         modelBuilder.Entity<SurveyAnswer>(entity =>
         {
-            entity.ToTable("Survey_Answer");
-
             entity.HasKey(e => e.Id);
-
-            entity.Property(e => e.Title)
-                .HasMaxLength(30);
-
-            entity.Property(e => e.UserId)
-                .HasMaxLength(20);
-
-            entity.Property(e => e.Answer)
-                .HasConversion(
-                    v => JsonSerializer.Serialize(v, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }),
-                    v => JsonSerializer.Deserialize<Dictionary<string, object>>(v, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
-                );
+            entity.Property(e => e.Answer).HasConversion(dictionaryConverter);
+            entity.HasIndex(e => e.RootId);
         });
+
+        modelBuilder.Entity<SurveyForm>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.detail).HasConversion(dictionaryConverter);
+        });
+
+        modelBuilder.Entity<SurveyAnswer>()
+            .HasIndex(e => e.RootId);
     }
-    
 }

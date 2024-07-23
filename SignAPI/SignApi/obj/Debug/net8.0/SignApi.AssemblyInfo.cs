@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27accd5d92fa70bc3e8e458f2b0f57cd19d8a371")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b8bbe45695674c877e423f31398de898657c33b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

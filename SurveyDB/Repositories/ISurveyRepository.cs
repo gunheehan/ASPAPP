@@ -1,4 +1,5 @@
-using SurveyDB.Entities;
+
+using SurveyDB.Models;
 
 namespace SurveyDB.Repositories;
 
@@ -8,7 +9,7 @@ public interface ISurveyRepository
     void CreateForm(SurveyForm formData);
     void DeleteForm(int id);
 
-    IEnumerable<SurveyAnswer> GetAnswers(string title);
+    Task<IEnumerable<SurveyAnswer>> GetAnswers(string formKey);
     void AddAnswer(SurveyAnswer answer);
     void DeleteAnswer(string title, int id);
 }
