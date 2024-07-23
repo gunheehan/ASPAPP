@@ -1,0 +1,45 @@
+﻿@page "/"
+@using Newtonsoft.Json
+@using Survey.Models
+@using Survey.Repositories
+@inject ISurveyRepository DbRepository
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@code
+{
+    private string statusMessage;
+
+    protected override void OnInitialized()
+    {
+        try
+        {
+            SurveyForm newForm = new SurveyForm
+            {
+                Title = "Survey DB Test"
+            };
+
+            Dictionary<string, string> newQuestion = new Dictionary<string, string>
+            {
+                { "질문 1", "해당 프로그램은 오류없이 진행되는가" },
+                { "질문 2", "데이터베이스가 잘 업데이트되고 있는가" }
+            };
+
+            newForm.Questions = JsonConvert.SerializeObject(newQuestion);
+
+            DbRepository.CreateForm(newForm);
+
+            statusMessage = "Form created successfully!";
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error: {ex.Message}";
+        }
+        Console.WriteLine($"{statusMessage}");
+
+    }
+}
