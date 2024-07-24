@@ -11,5 +11,7 @@ public partial class SurveyForm
 
     public string? Questions { get; set; }
 
-    public DateOnly? CreateTime { get; set; }
+    public DateTime? CreateTime { get; set; }
+
+    public string Constructor { get; set; } = null!;
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlazorServerMaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1fc4200615c2fc294e7b76da91f6a8be9529fa9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f9fde5eea907763afe637ce2c6b25bc1c690748")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlazorServerMaster")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlazorServerMaster")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

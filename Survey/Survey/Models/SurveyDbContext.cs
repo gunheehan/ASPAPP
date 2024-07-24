@@ -42,7 +42,10 @@ public partial class SurveyDbContext : DbContext
             entity.Property(e => e.Answers)
                 .HasColumnType("json")
                 .HasColumnName("answers");
-            entity.Property(e => e.CreateTime).HasColumnName("create_time");
+            entity.Property(e => e.CreateTime)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp")
+                .HasColumnName("create_time");
             entity.Property(e => e.FormKey)
                 .HasMaxLength(8)
                 .IsFixedLength()
@@ -65,7 +68,13 @@ public partial class SurveyDbContext : DbContext
                 .HasMaxLength(8)
                 .IsFixedLength()
                 .HasColumnName("form_key");
-            entity.Property(e => e.CreateTime).HasColumnName("create_time");
+            entity.Property(e => e.Constructor)
+                .HasMaxLength(10)
+                .HasColumnName("constructor");
+            entity.Property(e => e.CreateTime)
+                .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp")
+                .HasColumnName("create_time");
             entity.Property(e => e.Questions)
                 .HasColumnType("json")
                 .HasColumnName("questions");

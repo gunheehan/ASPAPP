@@ -15,5 +15,5 @@ public partial class SurveyAnswer
 
     public string? Answers { get; set; }
 
-    public DateOnly? CreateTime { get; set; }
+    public DateTime? CreateTime { get; set; }
 }

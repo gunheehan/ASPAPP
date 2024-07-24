@@ -12,6 +12,12 @@ public class SurveyRepository : ISurveyRepository
         this.dbContext = dbContext;
     }
 
+    public async Task<IEnumerable<SurveyForm>> GetForms()
+    {
+        var forms = await dbContext.SurveyForms.ToArrayAsync();
+        return forms;
+    }
+
     public SurveyForm GetForm(int id)
     {
         return null;

@@ -131,3 +131,5 @@
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.Design.dll
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Radzen.Blazor.dll
+/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/System.Linq.Dynamic.Core.dll
