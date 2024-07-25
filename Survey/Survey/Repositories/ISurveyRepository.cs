@@ -5,7 +5,7 @@ namespace Survey.Repositories;
 public interface ISurveyRepository
 {
     Task<IEnumerable<SurveyForm>> GetForms();
-    SurveyForm GetForm(int id);
+    Task<SurveyForm?> GetForm(string formKey);
     void CreateForm(SurveyForm formData);
     void DeleteForm(int id);
 

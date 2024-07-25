@@ -11,7 +11,6 @@ builder.Services.AddRazorComponents()
 builder.Services.AddDbContext<SurveyDbContext>();
 builder.Services.AddScoped<ISurveyRepository, SurveyRepository>();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

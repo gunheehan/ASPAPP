@@ -1,0 +1,47 @@
+@page "/form/questioninfo/{key}"
+@using Survey.Models
+@using Survey.Repositories
+
+@inject ISurveyRepository DbRepository
+
+@rendermode InteractiveServer
+
+@if (survey is null)
+{
+    <div class="rz-p-12">
+        <RadzenText TextStyle="TextStyle.H1">Loadin.....</RadzenText>
+    </div>
+}
+
+else
+{
+    <div class="rz-p-12">
+        <RadzenText TextStyle="TextStyle.H1">@title</RadzenText>
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public string? key { get; set; }
+
+    [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
+
+    private string title = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine(key);
+    }
+    
+    protected override async Task OnParametersSetAsync()
+    {
+        Console.WriteLine(key);
+        if (key is null)
+            return;
+        
+        survey = await DbRepository.GetForm(key);
+        title = survey.Title;
+    }
+
+}

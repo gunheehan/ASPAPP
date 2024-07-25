@@ -18,9 +18,11 @@ public class SurveyRepository : ISurveyRepository
         return forms;
     }
 
-    public SurveyForm GetForm(int id)
+    public async Task<SurveyForm?> GetForm(string formKey)
     {
-        return null;
+        return await dbContext.SurveyForms
+            .Where(a => a.FormKey == formKey)
+            .SingleOrDefaultAsync();
     }
 
     public void CreateForm(SurveyForm formData)
