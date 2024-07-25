@@ -50,7 +50,7 @@ else
                 <RadzenDataGridColumn Property="@nameof(SurveyForm.Constructor)" Title="Manager"/>
                 <RadzenDataGridColumn Context="survey" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
                     <Template Context="survey">
-                        <NavLink class="btn btn-info" href="@GetDtail(survey.FormKey)">
+                        <NavLink class="btn btn-info" href="@DetailUrl(survey.FormKey)">
                             <i class="bi bi-pencil"></i>
                         </NavLink>
                     </Template>
@@ -60,36 +60,36 @@ else
     </div>
     
     
-    <table class="table table-striped table-bordered table-hover mt-3">
-        <thead class="table-dark">
-        <tr>
-            <th>No</th>
-            <th>Title</th>
-            <th>CreateAt</th>
-            <th>Manager</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var survey in surveys)
-        {
-            columIndex++;
-            <tr>
-                <td>@columIndex</td>
-                <td>@survey.Title</td>
-                <td>@survey.CreateTime</td>
-                <td>@survey.Constructor</td>
-                <td>
-                    <div class="d-flex">
-                        <a class="btn btn-primary me-2" role="button" href ="@GetDtail(survey.FormKey)">
-                            <i class="bi bi-pencil"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    @* <table class="table table-striped table-bordered table-hover mt-3"> *@
+    @*     <thead class="table-dark"> *@
+    @*     <tr> *@
+    @*         <th>No</th> *@
+    @*         <th>Title</th> *@
+    @*         <th>CreateAt</th> *@
+    @*         <th>Manager</th> *@
+    @*         <th></th> *@
+    @*     </tr> *@
+    @*     </thead> *@
+    @*     <tbody> *@
+    @*     @foreach (var survey in surveys) *@
+    @*     { *@
+    @*         columIndex++; *@
+    @*         <tr> *@
+    @*             <td>@columIndex</td> *@
+    @*             <td>@survey.Title</td> *@
+    @*             <td>@survey.CreateTime</td> *@
+    @*             <td>@survey.Constructor</td> *@
+    @*             <td> *@
+    @*                 <div class="d-flex"> *@
+    @*                     <a class="btn btn-primary me-2" role="button" href ="@DetailUrl(survey.FormKey)"> *@
+    @*                         <i class="bi bi-pencil"></i> *@
+    @*                     </a> *@
+    @*                 </div> *@
+    @*             </td> *@
+    @*         </tr> *@
+    @*     } *@
+    @*     </tbody> *@
+    @* </table> *@
 
 
 }
@@ -102,39 +102,12 @@ else
     private SurveyForm[]? surveys;
     private int columIndex;
 
-    private string GetDtail(string key) => $"/form/questioninfo/{key}";
+    private string DetailUrl(string key) => $"/form/questioninfo/{key}";
     protected override async Task OnInitializedAsync()
     {
         columIndex = 0;
         surveys = (SurveyForm[]?)await DbRepository.GetForms();
         Console.WriteLine("Completed Init");
-
-        // try
-        // {
-        //     SurveyForm newForm = new SurveyForm
-        //     {
-        //         Title = "Survey DB Test"
-        //     };
-        //
-        //     Dictionary<string, string> newQuestion = new Dictionary<string, string>
-        //     {
-        //         { "질문 1", "여름 음식중 제일 좋아하는 것은?" },
-        //         { "질문 2", "여름 레저 스포츠를 한다면 원하는 것은?" }
-        //     };
-        //
-        //     newForm.Questions = JsonConvert.SerializeObject(newQuestion);
-        //     newForm.Constructor = "salin";
-        //     newForm.CreateTime = DateTime.Now;
-        //
-        //     DbRepository.CreateForm(newForm);
-        //
-        //     statusMessage = "Form created successfully!";
-        // }
-        // catch (Exception ex)
-        // {
-        //     statusMessage = $"Error: {ex.Message}";
-        // }
-        // Console.WriteLine($"{statusMessage}");
     }
 
     private void OnClickMove(int tableKey)

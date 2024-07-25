@@ -28,15 +28,10 @@ else
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
 
     private string title = string.Empty;
-
-    protected override async Task OnInitializedAsync()
-    {
-        Console.WriteLine(key);
-    }
+    
     
     protected override async Task OnParametersSetAsync()
     {
-        Console.WriteLine(key);
         if (key is null)
             return;
         
