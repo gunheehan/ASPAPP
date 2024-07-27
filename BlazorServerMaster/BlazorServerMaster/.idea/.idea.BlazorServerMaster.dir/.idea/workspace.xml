@@ -4,34 +4,32 @@
     <projectFile profileName="http">BlazorServerMaster.csproj</projectFile>
     <projectFile profileName="https">BlazorServerMaster.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3d67336b-bcf6-4a0d-8a2c-288eebefaba4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/BlazorApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/bin/Debug/net8.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/BlazorApp.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/BlazorApp.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/ref/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/ref/BlazorApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/refint/BlazorApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/Debug/net8.0/refint/BlazorApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlazorApp/BlazorApp/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/BlazorServerMaster.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/BlazorServerMaster.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/BlazorServerMaster.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/BlazorServerMaster.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/BlazorServerMaster.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/BlazorServerMaster.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/BlazorServerMaster.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/BlazorServerMaster.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/BlazorServerMaster.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/CreatePage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Layout/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/Home.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +39,10 @@
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -53,6 +55,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   },
@@ -106,6 +112,7 @@
       <updated>1721541887034</updated>
       <workItem from="1721541888132" duration="48000" />
       <workItem from="1721721470312" duration="96000" />
+      <workItem from="1721804963835" duration="7014000" />
     </task>
     <servers />
   </component>
