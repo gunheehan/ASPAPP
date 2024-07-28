@@ -42,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9RdWVzdGlvbkluZm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Pages/SurveyPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TdXJ2ZXlQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

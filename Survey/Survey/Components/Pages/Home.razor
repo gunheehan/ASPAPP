@@ -41,32 +41,32 @@ else
             <RadzenButton Click=@OnClickNewForm Text="NewForm" Size="ButtonSize.Medium" />
         </div>
     </div>
-    
-    <div class="row my-3">
-        <RadzenDataGrid @ref="surveyGrid" AllowFiltering="true" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5" AllowSorting="true"
-                        Data="@surveys" TItem="SurveyForm">
-            <Columns>
-                <RadzenDataGridColumn TItem="SurveyForm" Title="No.">
+
+<div class="row my-3">
+    <RadzenDataGrid @ref="surveyGrid" AllowFiltering="true" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5" AllowSorting="true"
+                    Data="@surveys" TItem="SurveyForm" Count="@surveysCount" LoadData="@LoadSurveys">
+        <Columns>
+            <RadzenDataGridColumn TItem="SurveyForm" Title="No.">
                 <Template Context="survey">
                     @{
                     columIndex++;
                     }
                     @columIndex
-                    </Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn Property="@nameof(SurveyForm.Title)" Title="Title"/>
-                <RadzenDataGridColumn Property="@nameof(SurveyForm.CreateTime)" Title="CreateAt"/>
-                <RadzenDataGridColumn Property="@nameof(SurveyForm.Constructor)" Title="Manager"/>
-                <RadzenDataGridColumn Context="survey" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
-                    <Template Context="survey">
-                        <NavLink class="btn btn-info" href="@DetailUrl(survey.FormKey)">
-                            <i class="bi bi-pencil"></i>
-                        </NavLink>
-                    </Template>
-                </RadzenDataGridColumn>
-            </Columns>
-        </RadzenDataGrid>
-    </div>
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Property="@nameof(SurveyForm.Title)" Title="Title"/>
+            <RadzenDataGridColumn Property="@nameof(SurveyForm.CreateTime)" Title="CreateAt"/>
+            <RadzenDataGridColumn Property="@nameof(SurveyForm.Constructor)" Title="Manager"/>
+            <RadzenDataGridColumn Context="survey" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
+                <Template Context="survey">
+                    <NavLink class="btn btn-info" href="@DetailUrl(survey.FormKey)">
+                        <i class="bi bi-pencil"></i>
+                    </NavLink>
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+</div>
 
 }
 
@@ -76,15 +76,22 @@ else
 
     RadzenDataGrid<SurveyForm> surveyGrid;
     private SurveyForm[]? surveys;
-    private int columIndex;
+    private int surveysCount;
+    private int columIndex = 0;
 
-    private string DetailUrl(string key) => $"/form/questioninfo/{key}";
     protected override async Task OnInitializedAsync()
     {
-        columIndex = 0;
-        surveys = (SurveyForm[]?)await DbRepository.GetForms();
-        Console.WriteLine("Completed Init");
+        await LoadSurveys(new LoadDataArgs());
     }
+
+    private async Task LoadSurveys(LoadDataArgs args)
+    {
+        surveys = (SurveyForm[]?)await DbRepository.GetForms();
+        surveysCount = surveys.Length;
+        columIndex = 0;
+    }
+    private string DetailUrl(string key) => $"/form/questioninfo/{key}";
+
 
     private void OnClickNewForm()
     {

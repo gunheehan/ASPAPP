@@ -1,0 +1,85 @@
+@page "/{key}"
+@using Newtonsoft.Json
+@using Survey.Models
+@using Survey.Repositories
+@inject NavigationManager Navigation
+@inject ISurveyRepository DbRepository
+
+@if (survey is null)
+{
+<div class="rz-p-12">
+    <RadzenText TextStyle="TextStyle.H1">Loading.....</RadzenText>
+</div>
+}
+
+else
+{
+    <div class="rz-p-12">
+        <RadzenText TextStyle="TextStyle.H3">@title</RadzenText>
+    </div>
+
+    <div class="row my-1">
+        <div class="col-sm-12 col-lg-12">
+            @{
+                questionIndex = 0;
+            }
+            @foreach (var question in questionList.Select((q, index) => new { q, index }))
+            {
+                <RadzenCard Style="margin-top: 2rem;">
+                    <RadzenText Text=@($"Question {++questionIndex}") TextStyle="TextStyle.H6"/>
+                    <RadzenText Text=@(question.q) TextStyle="TextStyle.H6"/>
+                    <RadzenTextArea @bind-Value="answers[question.index]" Style="width: 100%" Placeholder="Enter your answer here..."/>
+                </RadzenCard>
+            }
+            <RadzenButton Text="Save" Click="@SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem;"/>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col text-end">
+            <RadzenButton Click=@SaveAnswers Text="NewForm" Size="ButtonSize.Medium" />
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public string? key { get; set; }
+    [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
+    private string[] answers = null; // Adjust the size based on the number of questions
+
+    private string[] questionList;
+    private string title = string.Empty;
+    
+    private int questionIndex = 0;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (key is null)
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+        survey = await DbRepository.GetForm(key);
+
+        if (survey is null)
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+        
+        questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
+        title = survey.Title;
+        answers = new string[questionList.Length];
+    }
+    private void SaveAnswers()
+    {
+        Console.WriteLine("OnClick Save Button");
+
+        // Save the answers to a string array or perform any action
+        string[] savedAnswers = answers;
+
+        foreach (string answer in savedAnswers)
+        {
+            Console.WriteLine(answer);
+        }
+    }
+}

@@ -1,5 +1,5 @@
 @page "/form/questioninfo/{key}"
-@using Radzen
+@using Newtonsoft.Json
 @using Survey.Models
 @using Survey.Repositories
 
@@ -10,7 +10,7 @@
 @if (survey is null)
 {
     <div class="rz-p-12">
-        <RadzenText TextStyle="TextStyle.H1">Loadin.....</RadzenText>
+        <RadzenText TextStyle="TextStyle.H1">Loading.....</RadzenText>
     </div>
 }
 
@@ -19,11 +19,35 @@ else
     <div class="rz-p-12">
         <RadzenText TextStyle="TextStyle.H3">@title</RadzenText>
     </div>
+    
+    <RadzenTabs @bind-SelectedIndex=@selectedIndex>
+        <Tabs>
+            <RadzenTabsItem Text="Questions">
+                <div class="row my-1">
+                    <div class="col-sm-12 col-lg-12">
+                        @{
+                            questionIndex = 0;
+                        }
+                        @foreach (string question in questionList)
+                        {
+                            <RadzenCard Style="margin-top: 2rem;">
+                                <RadzenText Text=@($"Question {++questionIndex}") TextStyle="TextStyle.H6"/>
+                                <RadzenText Text=@(question) TextStyle="TextStyle.H6"/>
+                            </RadzenCard>
+                        }
+                    </div>
+                </div>
+                </RadzenTabsItem>
+            <RadzenTabsItem Text="Orders">
+                Orders
+            </RadzenTabsItem>
+            <RadzenTabsItem Text="Order Details">
+                Order Details
+            </RadzenTabsItem>
+        </Tabs>
+    </RadzenTabs>
 
-    <div class="row my-1">
-        <div class="col-sm-12 col-lg-12">
-        </div>
-    </div>
+
 
 }
 
@@ -33,10 +57,18 @@ else
     public string? key { get; set; }
 
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
+    private string[] questionList;
     TabPosition tabPosition = TabPosition.Top;
 
     private string title = string.Empty;
+    private int questionIndex = 0;
     private int selectedIndex = 0;
+
+    protected override void OnInitialized()
+    {
+        selectedIndex = 0;
+    }
+
 
     protected override async Task OnParametersSetAsync()
     {
@@ -44,6 +76,8 @@ else
             return;
         
         survey = await DbRepository.GetForm(key);
+
+        questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
         title = survey.Title;
     }
     

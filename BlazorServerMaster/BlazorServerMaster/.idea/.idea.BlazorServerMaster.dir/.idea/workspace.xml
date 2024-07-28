@@ -8,29 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d67336b-bcf6-4a0d-8a2c-288eebefaba4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/CreatePage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/Home.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="3d67336b-bcf6-4a0d-8a2c-288eebefaba4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +90,7 @@
       <updated>1721541887034</updated>
       <workItem from="1721541888132" duration="48000" />
       <workItem from="1721721470312" duration="96000" />
-      <workItem from="1721804963835" duration="7014000" />
+      <workItem from="1721804963835" duration="7678000" />
     </task>
     <servers />
   </component>
