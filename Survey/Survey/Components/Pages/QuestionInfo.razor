@@ -28,11 +28,11 @@ else
                         @foreach (var (question, index) in questionList.Select((q, idx) => (q, idx)))
                         {
                             <RadzenCard Style="margin-bottom: 2rem;">
-                                <div class="question-card">
-                                    <div class="question-header">
-                                        <button class="btn-question-text" @onclick="@(() => ToggleEditQuestion(index))">
-                                            Question @($"{index + 1}")
-                                        </button>
+                                <div>
+                                    <div>
+                                        <div class="clickable-text" @onclick="() => ToggleEditQuestion(index)">
+                                            @($"지문 {index + 1}")
+                                        </div>
                                     </div>
                                     @if (editingIndex == index)
                                     {
@@ -45,10 +45,10 @@ else
                                 </div>
                             </RadzenCard>
                         }
-                        <RadzenButton Text="Save All" Click="SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem;"/>
+                        <RadzenButton Text="질문지 변경" Click="SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem; background-color: #007bff"/>
                     </div>
                 </div>
-                </RadzenTabsItem>
+            </RadzenTabsItem>
             <RadzenTabsItem Text="Answers">
                 <div class="row my-1">
                     <div class="col-sm-12 col-lg-12">
@@ -96,6 +96,24 @@ else
             </RadzenTabsItem>
         </Tabs>
     </RadzenTabs>
+    
+    <style>
+        .clickable-text {
+            cursor: pointer; /* 포인터 커서로 클릭 가능성을 나타냅니다. */
+            color: black;  /* 링크 스타일을 위한 색상 */
+            display: inline-block; /* 텍스트가 한 줄에 보이도록 설정 */
+            font-weight: bold; /* 볼드체로 설정 */
+            font-size: 1.2rem; /* 글씨 크기를 키움 */
+            font-style: normal;
+            transition: color 0.3s, background-color 0.3s; /* 색상과 배경 색상 변경 시 부드러운 전환 효과 추가 */
+        }
+
+        .clickable-text:hover {
+            color: #0056b3; /* 마우스를 올렸을 때 텍스트 색상 변경 */
+            background-color: rgba(0, 123, 255, 0.1); /* 배경색 추가하여 클릭 가능한 부분을 강조 */
+            text-decoration: underline; /* 밑줄 유지 */
+        }
+    </style>
 }
 
 
