@@ -32,6 +32,18 @@ public class SurveyRepository : ISurveyRepository
         dbContext.SaveChanges();
     }
 
+    public void UpdateForm(SurveyForm updateData)
+    {
+        SurveyForm existingForm = dbContext.SurveyForms.Find(updateData.FormKey);
+
+        if (existingForm != null)
+        {
+            existingForm.Questions = updateData.Questions;
+        
+            dbContext.SaveChanges();
+        }
+    }
+
     public void DeleteForm(int id)
     { }
 

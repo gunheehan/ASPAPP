@@ -38,10 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Pages/QuestionInfo.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9RdWVzdGlvbkluZm8ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Pages/SurveyPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TdXJ2ZXlQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,3 +61,7 @@ build_metadata.AdditionalFiles.CssScope = b-jk84s3xbf9
 [/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-wce0eqqqi6
+
+[/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/Components/Pages/QuestionInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9RdWVzdGlvbkluZm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-gih8kguik8

@@ -8,7 +8,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d67336b-bcf6-4a0d-8a2c-288eebefaba4" name="Changes" comment="" />
+    <list default="true" id="3d67336b-bcf6-4a0d-8a2c-288eebefaba4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/Components/Pages/QuestionInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/bin/Debug/net8.0/Survey.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/Survey.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/ref/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Debug/net8.0/refint/Survey.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/Survey.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Survey/Survey/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,10 +33,10 @@
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -30,24 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/gunhee/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/gunhee/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/gunhee/Library/Application Support/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/gunhee/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/gunhee/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/gunhee/Library/Application Support/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BlazorServerMaster: http">
     <configuration name="BlazorServerMaster: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorServerMaster.csproj" />

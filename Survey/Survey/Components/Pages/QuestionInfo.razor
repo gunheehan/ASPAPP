@@ -25,16 +25,27 @@ else
             <RadzenTabsItem Text="Questions">
                 <div class="row my-1">
                     <div class="col-sm-12 col-lg-12">
-                        @{
-                            questionIndex = 0;
-                        }
-                        @foreach (string question in questionList)
+                        @foreach (var (question, index) in questionList.Select((q, idx) => (q, idx)))
                         {
-                            <RadzenCard Style="margin-top: 2rem;">
-                                <RadzenText Text=@($"Question {++questionIndex}") TextStyle="TextStyle.H6"/>
-                                <RadzenText Text=@(question) TextStyle="TextStyle.H6"/>
+                            <RadzenCard Style="margin-bottom: 2rem;">
+                                <div class="question-card">
+                                    <div class="question-header">
+                                        <button class="btn-question-text" @onclick="@(() => ToggleEditQuestion(index))">
+                                            Question @($"{index + 1}")
+                                        </button>
+                                    </div>
+                                    @if (editingIndex == index)
+                                    {
+                                        <RadzenTextArea @bind-Value="editanswers[index]" Style="width: 100%" Placeholder="Enter your answer here..."/>
+                                    }
+                                    else
+                                    {
+                                        <RadzenText Text=@(editanswers[index]) TextStyle="TextStyle.H6"/>
+                                    }
+                                </div>
                             </RadzenCard>
                         }
+                        <RadzenButton Text="Save All" Click="SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem;"/>
                     </div>
                 </div>
                 </RadzenTabsItem>
@@ -67,9 +78,6 @@ else
             </RadzenTabsItem>
         </Tabs>
     </RadzenTabs>
-
-
-
 }
 
 
@@ -85,11 +93,13 @@ else
     private int surveysCount;
 
     private string[] questionList;
+    private List<string> editanswers = new List<string>();
     TabPosition tabPosition = TabPosition.Top;
 
     private string title = string.Empty;
     private int questionIndex = 0;
     private int selectedIndex = 0;
+    private int? editingIndex = null; // Track which index is currently being edited
 
     protected override void OnInitialized()
     {
@@ -106,16 +116,36 @@ else
 
         questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
         title = survey.Title;
-
+        editanswers = new List<string>(questionList);
         answers = await DbRepository.GetAnswers(key);
     }
     
-    void OnChange(int index)
+    private void ToggleEditQuestion(int index)
     {
-        Console.WriteLine($"Tab with index {index} was selected.");
+        if (editingIndex == index)
+        {
+            // Clicked the already active card, toggle off editing
+            editingIndex = null;
+        }
+        else
+        {
+            // Set the index of the card to be edited
+            editingIndex = index;
+        }
     }
-    private void OnTabChange(int index)
+
+    private void SaveAnswers()
     {
-        selectedIndex = index;
+        // Here you can implement logic to save `editanswers` to your database or other storage
+        Console.WriteLine("Answers have been saved:");
+        foreach (string answer in editanswers)
+        {
+            Console.WriteLine(answer);
+        }
+        // Optionally clear the editing index after saving
+        survey.Questions = JsonConvert.SerializeObject(editanswers);
+        
+        DbRepository.UpdateForm(survey);
+        editingIndex = null;
     }
 }

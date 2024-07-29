@@ -133,3 +133,4 @@
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/Radzen.Blazor.dll
 /Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/bin/Debug/net8.0/System.Linq.Dynamic.Core.dll
+/Users/gunhee/Documents/GitHub/ASPAPP/Survey/Survey/obj/Debug/net8.0/scopedcss/Components/Pages/QuestionInfo.razor.rz.scp.css
