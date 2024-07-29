@@ -50,19 +50,40 @@ else
                 </div>
                 </RadzenTabsItem>
             <RadzenTabsItem Text="Answers">
+                <div class="row my-1">
+                    <div class="col-sm-12 col-lg-12">
+                        @foreach (SurveyAnswer answer in answers)
+                        {
+                            <RadzenCard Style="margin-bottom: 2rem;">
+                                @{
+                                    string[] answerData = JsonConvert.DeserializeObject<string[]>(answer.Answers);
+                                    <RadzenText Text=@(answer.UserId) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+
+                                    foreach (var answer in answerData)
+                                    {
+                                        <RadzenCard Style="margin-bottom: 2px;">
+                                            <div>
+                                                <RadzenText Text=@(answer) TextStyle="TextStyle.Body2"/>
+                                            </div>
+                                        </RadzenCard>
+                                    }
+                                }
+                            </RadzenCard>
+                        }
+                    </div>
+                </div>
+            </RadzenTabsItem>
+            <RadzenTabsItem Text="Total">
                 <div class="row my-3">
-                    @{
-                        columIndex = 0;
-                    }
                     <RadzenDataGrid @ref="answerGrid" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5"
                                     Data="@answers" TItem="SurveyAnswer">
                         <Columns>
                             <RadzenDataGridColumn TItem="SurveyAnswer" Title="No.">
                                 <Template Context="survey">
                                     @{
-                                        columIndex++;
+                                        var index = answers.ToList().IndexOf(survey) + 1;
                                     }
-                                    @columIndex
+                                    @index
                                 </Template>
                             </RadzenDataGridColumn>
                             <RadzenDataGridColumn Property="@nameof(SurveyAnswer.Title)" Title="Title"/>
@@ -72,9 +93,6 @@ else
                         </Columns>
                     </RadzenDataGrid>
                 </div>
-            </RadzenTabsItem>
-            <RadzenTabsItem Text="Total">
-                Order Details
             </RadzenTabsItem>
         </Tabs>
     </RadzenTabs>
@@ -89,7 +107,6 @@ else
     [SupplyParameterFromForm] private IEnumerable<SurveyAnswer> answers { get; set; }
     
     RadzenDataGrid<SurveyAnswer> answerGrid;
-    private int columIndex = 0;
     private int surveysCount;
 
     private string[] questionList;
@@ -99,13 +116,12 @@ else
     private string title = string.Empty;
     private int questionIndex = 0;
     private int selectedIndex = 0;
-    private int? editingIndex = null; // Track which index is currently being edited
+    private int? editingIndex = null;
 
     protected override void OnInitialized()
     {
         selectedIndex = 0;
     }
-
 
     protected override async Task OnParametersSetAsync()
     {
@@ -123,26 +139,13 @@ else
     private void ToggleEditQuestion(int index)
     {
         if (editingIndex == index)
-        {
-            // Clicked the already active card, toggle off editing
             editingIndex = null;
-        }
         else
-        {
-            // Set the index of the card to be edited
             editingIndex = index;
-        }
     }
 
     private void SaveAnswers()
     {
-        // Here you can implement logic to save `editanswers` to your database or other storage
-        Console.WriteLine("Answers have been saved:");
-        foreach (string answer in editanswers)
-        {
-            Console.WriteLine(answer);
-        }
-        // Optionally clear the editing index after saving
         survey.Questions = JsonConvert.SerializeObject(editanswers);
         
         DbRepository.UpdateForm(survey);
