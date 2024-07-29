@@ -38,10 +38,31 @@ else
                     </div>
                 </div>
                 </RadzenTabsItem>
-            <RadzenTabsItem Text="Orders">
-                Orders
+            <RadzenTabsItem Text="Answers">
+                <div class="row my-3">
+                    @{
+                        columIndex = 0;
+                    }
+                    <RadzenDataGrid @ref="answerGrid" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5"
+                                    Data="@answers" TItem="SurveyAnswer">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="SurveyAnswer" Title="No.">
+                                <Template Context="survey">
+                                    @{
+                                        columIndex++;
+                                    }
+                                    @columIndex
+                                </Template>
+                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn Property="@nameof(SurveyAnswer.Title)" Title="Title"/>
+                            <RadzenDataGridColumn Property="@nameof(SurveyAnswer.Answers)" Title="Answers"/>
+                            <RadzenDataGridColumn Property="@nameof(SurveyAnswer.CreateTime)" Title="CreateAt"/>
+                            <RadzenDataGridColumn Property="@nameof(SurveyAnswer.UserId)" Title="Manager"/>
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
             </RadzenTabsItem>
-            <RadzenTabsItem Text="Order Details">
+            <RadzenTabsItem Text="Total">
                 Order Details
             </RadzenTabsItem>
         </Tabs>
@@ -57,6 +78,12 @@ else
     public string? key { get; set; }
 
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
+    [SupplyParameterFromForm] private IEnumerable<SurveyAnswer> answers { get; set; }
+    
+    RadzenDataGrid<SurveyAnswer> answerGrid;
+    private int columIndex = 0;
+    private int surveysCount;
+
     private string[] questionList;
     TabPosition tabPosition = TabPosition.Top;
 
@@ -79,6 +106,8 @@ else
 
         questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
         title = survey.Title;
+
+        answers = await DbRepository.GetAnswers(key);
     }
     
     void OnChange(int index)

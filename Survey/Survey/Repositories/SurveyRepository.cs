@@ -45,7 +45,10 @@ public class SurveyRepository : ISurveyRepository
     }
 
     public void AddAnswer(SurveyAnswer answer)
-    { }
+    {
+        dbContext.SurveyAnswers.Add(answer);
+        dbContext.SaveChanges();
+    }
 
     public void DeleteAnswer(string title, int id)
     { }

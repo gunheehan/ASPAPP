@@ -5,6 +5,9 @@
 @inject NavigationManager Navigation
 @inject ISurveyRepository DbRepository
 
+@rendermode InteractiveServer
+
+
 @if (survey is null)
 {
 <div class="rz-p-12">
@@ -31,20 +34,21 @@ else
                     <RadzenTextArea @bind-Value="answers[question.index]" Style="width: 100%" Placeholder="Enter your answer here..."/>
                 </RadzenCard>
             }
-            <RadzenButton Text="Save" Click="@SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem;"/>
+            <RadzenCard Style="margin-top: 2rem;">
+                <RadzenText Text="작성자" TextStyle="TextStyle.H6"/>
+                <RadzenTextArea @bind-Value="user" Style="width: 100%" Placeholder="Enter your Email here..."/>
+            </RadzenCard>
         </div>
     </div>
-    <div class="row my-3">
-        <div class="col text-end">
-            <RadzenButton Click=@SaveAnswers Text="NewForm" Size="ButtonSize.Medium" />
-        </div>
-    </div>
+    
+    <RadzenButton Click=@SaveAnswers Text="Send" Size="ButtonSize.Medium" />
 }
 
 @code {
     [Parameter] public string? key { get; set; }
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
     private string[] answers = null; // Adjust the size based on the number of questions
+    private string user;
 
     private string[] questionList;
     private string title = string.Empty;
@@ -74,12 +78,25 @@ else
     {
         Console.WriteLine("OnClick Save Button");
 
-        // Save the answers to a string array or perform any action
         string[] savedAnswers = answers;
 
         foreach (string answer in savedAnswers)
         {
             Console.WriteLine(answer);
         }
+
+        SurveyAnswer newAnswer = new SurveyAnswer()
+        {
+            FormKey = key,
+            Title = title,
+            UserId = user,
+            CreateTime = DateTime.Now
+        };
+
+        newAnswer.Answers = JsonConvert.SerializeObject(savedAnswers);
+        
+        DbRepository.AddAnswer(newAnswer);
+        
+        Navigation.NavigateTo("/");
     }
 }

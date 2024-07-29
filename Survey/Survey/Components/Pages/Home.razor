@@ -43,7 +43,7 @@ else
     </div>
 
 <div class="row my-3">
-    <RadzenDataGrid @ref="surveyGrid" AllowFiltering="true" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5" AllowSorting="true"
+    <RadzenDataGrid @ref="surveyGrid" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5"
                     Data="@surveys" TItem="SurveyForm" Count="@surveysCount" LoadData="@LoadSurveys">
         <Columns>
             <RadzenDataGridColumn TItem="SurveyForm" Title="No.">
