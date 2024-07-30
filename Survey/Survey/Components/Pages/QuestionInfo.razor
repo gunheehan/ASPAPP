@@ -7,7 +7,7 @@
 
 @rendermode InteractiveServer
 
-@if (survey is null)
+@if (survey is null || questionList is null)
 {
     <div class="rz-p-12">
         <RadzenText TextStyle="TextStyle.H1">Loading.....</RadzenText>
@@ -58,11 +58,15 @@ else
                                 @{
                                     string[] answerData = JsonConvert.DeserializeObject<string[]>(answer.Answers);
                                     <RadzenText Text=@(answer.UserId) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
-
+                                    int answerIndex = 0;
                                     foreach (var answer in answerData)
                                     {
                                         <RadzenCard Style="margin-bottom: 2px;">
-                                            <div>
+                                            <div>@if (answerIndex < questionList.Length)
+                                                 {
+                                                     <RadzenText Text=@($"Q{answerIndex + 1}. {questionList[answerIndex]}") TextStyle="TextStyle.H6"/>
+                                                     answerIndex++;
+                                                 }
                                                 <RadzenText Text=@(answer) TextStyle="TextStyle.Body2"/>
                                             </div>
                                         </RadzenCard>
@@ -127,7 +131,7 @@ else
     RadzenDataGrid<SurveyAnswer> answerGrid;
     private int surveysCount;
 
-    private string[] questionList;
+    private string[] questionList = null;
     private List<string> editanswers = new List<string>();
     TabPosition tabPosition = TabPosition.Top;
 

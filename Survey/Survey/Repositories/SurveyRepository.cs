@@ -22,7 +22,8 @@ public class SurveyRepository : ISurveyRepository
     {
         return await dbContext.SurveyForms
             .Where(a => a.FormKey == formKey)
-            .SingleOrDefaultAsync();
+            .OrderByDescending(a => a.CreateTime)
+            .FirstOrDefaultAsync();
     }
 
     public void CreateForm(SurveyForm formData)

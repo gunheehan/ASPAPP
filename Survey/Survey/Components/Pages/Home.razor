@@ -2,6 +2,8 @@
 @using Survey.Repositories
 @using Survey.Models
 @inject NavigationManager Navigation
+@inject ClipboardService ClipboardService
+@inject TooltipService TooltipService
 
 @rendermode InteractiveServer
 @inject ISurveyRepository DbRepository
@@ -42,31 +44,44 @@ else
         </div>
     </div>
 
-<div class="row my-3">
-    <RadzenDataGrid @ref="surveyGrid" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5"
-                    Data="@surveys" TItem="SurveyForm" Count="@surveysCount" LoadData="@LoadSurveys">
-        <Columns>
-            <RadzenDataGridColumn TItem="SurveyForm" Title="No.">
-                <Template Context="survey">
-                    @{
-                    columIndex++;
-                    }
-                    @columIndex
-                </Template>
-            </RadzenDataGridColumn>
-            <RadzenDataGridColumn Property="@nameof(SurveyForm.Title)" Title="Title"/>
-            <RadzenDataGridColumn Property="@nameof(SurveyForm.CreateTime)" Title="CreateAt"/>
-            <RadzenDataGridColumn Property="@nameof(SurveyForm.Constructor)" Title="Manager"/>
-            <RadzenDataGridColumn Context="survey" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
-                <Template Context="survey">
-                    <NavLink class="btn btn-info" href="@DetailUrl(survey.FormKey)">
-                        <i class="bi bi-pencil"></i>
-                    </NavLink>
-                </Template>
-            </RadzenDataGridColumn>
-        </Columns>
-    </RadzenDataGrid>
-</div>
+    <div class="row my-3">
+        <RadzenDataGrid @ref="surveyGrid" FilterPopupRenderMode="PopupRenderMode.OnDemand" AllowPaging="true" PageSize="5"
+                        Data="@surveys" TItem="SurveyForm" Count="@surveysCount" LoadData="@LoadSurveys">
+            <Columns>
+                <RadzenDataGridColumn TItem="SurveyForm" Title="No.">
+                    <Template Context="survey">
+                        @{
+                            int columIndex = Array.IndexOf(surveys, survey) + 1;
+                        }
+                        @columIndex
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Property="@nameof(SurveyForm.Title)" Title="Title"/>
+                <RadzenDataGridColumn Property="@nameof(SurveyForm.CreateTime)" Title="CreateAt"/>
+                <RadzenDataGridColumn Property="@nameof(SurveyForm.Constructor)" Title="Manager"/>
+                <RadzenDataGridColumn Context="survey" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
+                    <Template Context="survey">
+                        <NavLink class="btn btn-info" href="@DetailUrl(survey.FormKey)">
+                            <i class="bi bi-pencil"></i>
+                        </NavLink>
+                        <button class="btn btn-secondary" @onclick="@(() => CopyToClipboard(survey.FormKey))">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                        @* <Tooltip Text="Hello tooltip"> *@
+                        @*     <Button Color="Color.Primary">Hover me</Button> *@
+                        @* </Tooltip> *@
+                        @* <div class="container"> *@
+                        @*     <!-- Button with Tooltip and click event --> *@
+                        @*     <div @ref="buttonElement" class="btn btn-primary" @onclick="@(() => CopyToClipboard(survey.FormKey))" *@
+                        @*          @onmouseover="@(args => ShowTooltip(buttonElement, "Click me to see a notification"))"> *@
+                        @*         copy *@
+                        @*     </div> *@
+                        @* </div> *@
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
+    </div>
 
 }
 
@@ -78,6 +93,7 @@ else
     private SurveyForm[]? surveys;
     private int surveysCount;
     private int columIndex = 0;
+    private ElementReference buttonElement;
 
     protected override async Task OnInitializedAsync()
     {
@@ -96,5 +112,48 @@ else
     private void OnClickNewForm()
     {
         Navigation.NavigateTo("/createNew");
+    }
+    
+    async Task CopyToClipboard(string key)
+    {
+        try
+        {
+            var baseUri = Navigation.BaseUri;
+            var url = $"{baseUri}view/{key}";
+            await ClipboardService.WriteTextAsync(url);
+        }
+        catch
+        {
+            Console.WriteLine("Cannot write text to clipboard");
+        }
+    }
+    private void ShowTooltip(ElementReference elementReference, string key)
+    {
+        TooltipService.Open(elementReference, $"Copy URL for {key}", new TooltipOptions { Position = TooltipPosition.Top });
+    }
+    
+    [Parameter] public string Tip { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+
+    private bool _isToolTipVisible = false;
+    private bool _isMouseOver = false;
+    private const int ToolTipDelay = 500;
+
+    private async Task ShowToolTip(MouseEventArgs e)
+    {
+        _isMouseOver = true;
+        await Task.Delay(ToolTipDelay);
+
+        if (_isMouseOver)
+        {
+            _isToolTipVisible = true;
+            StateHasChanged();
+        }
+    }
+
+    private void HideToolTip(MouseEventArgs e)
+    {
+        _isMouseOver = false;
+        _isToolTipVisible = false;
     }
 }
