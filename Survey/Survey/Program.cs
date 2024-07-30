@@ -12,7 +12,6 @@ builder.Services.AddRazorComponents()
 builder.Services.AddDbContext<SurveyDbContext>();
 builder.Services.AddScoped<ISurveyRepository, SurveyRepository>();
 builder.Services.AddScoped<ClipboardService>();
-builder.Services.AddScoped<TooltipService>();
 
 var app = builder.Build();
 
