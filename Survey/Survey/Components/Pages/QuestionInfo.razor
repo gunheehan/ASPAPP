@@ -92,18 +92,19 @@ else
                         {
                             int countIndex = 0;
                             <RadzenCard Style="margin-bottom: 3rem;">
-                                @for (countIndex = 0; countIndex < questionList.Length; countIndex++)
+                                @foreach (var data in sortingData)
                                 {
-                                    int subIndex = countIndex;
-                                    <RadzenText Text=@(questionList[countIndex]) TextStyle="TextStyle.H5" Style="margin-bottom: 1rem;"/>
+                                    <RadzenText Text=@(questionList[data.Key]) TextStyle="TextStyle.H5" Style="margin-bottom: 1rem;"/>
                                     <RadzenCard Style="margin-bottom: 2rem;">
-                                        @foreach (SurveyAnswer answer in answers)
+                                        @foreach (var answer in data.Value.answer)
                                         {
                                             <RadzenCard Style="margin-bottom: 1px;">
-                                                @{
-                                                    string[] answerData = JsonConvert.DeserializeObject<string[]>(answer.Answers);
-                                                    <RadzenText Text=@(answerData[subIndex]) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
-                                                }
+                                                <div class="flex-container">
+                                                    <RadzenText Text=@($"{answer.Key}") TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+                                                    <span class="flex-spacer"/>
+                                                    <RadzenText Text=@($"답변 : {answer.Value.ToString()}개") TextStyle="TextStyle.Body2"/>
+                                                </div>
+
                                             </RadzenCard>
                                         }
                                     </RadzenCard>
@@ -114,14 +115,20 @@ else
                         {
                             <RadzenCard Style="margin-bottom: 2rem;">
                                 <RadzenText Text=@(questionList[dropdownIndex]) TextStyle="TextStyle.H5" Style="margin-bottom: 1rem;"/>
-                                @foreach (SurveyAnswer answer in answers)
+                                @{
+                                SurveyCategoryTotal totalData = sortingData[dropdownIndex];
+
+                                foreach (var answer in totalData.answer)
                                 {
                                     <RadzenCard Style="margin-bottom: 1px;">
-                                        @{
-                                            string[] answerData = JsonConvert.DeserializeObject<string[]>(answer.Answers);
-                                            <RadzenText Text=@(answerData[dropdownIndex]) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
-                                        }
+                                        <div class="flex-container">
+                                            <RadzenText Text=@($"{answer.Key}") TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+                                            <span class="flex-spacer"/>
+                                            <RadzenText Text=@($"답변 : {answer.Value.ToString()}개") TextStyle="TextStyle.Body2"/>
+                                        </div>
+
                                     </RadzenCard>
+                                }
                                 }
                             </RadzenCard>
                         }
@@ -148,17 +155,26 @@ else
             background-color: rgba(0, 123, 255, 0.1); /* 배경색 추가하여 클릭 가능한 부분을 강조 */
             text-decoration: underline; /* 밑줄 유지 */
         }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-spacer {
+            flex-grow: 1;
+        }
     </style>
 }
 
 
 @code {
-    [Parameter]
-    public string? key { get; set; }
+    [Parameter] public string? key { get; set; }
 
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
     [SupplyParameterFromForm] private IEnumerable<SurveyAnswer> answers { get; set; }
-    
+
     RadzenDataGrid<SurveyAnswer> answerGrid;
     private int surveysCount;
 
@@ -182,7 +198,7 @@ else
     {
         if (key is null)
             return;
-        
+
         survey = await DbRepository.GetForm(key);
 
         questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
@@ -190,6 +206,7 @@ else
         editanswers = new List<string>(questionList);
         answers = await DbRepository.GetAnswers(key);
         SetDropDown();
+        SortingDropDownData();
     }
 
     private void SetDropDown()
@@ -208,7 +225,7 @@ else
             });
         }
     }
-    
+
     private void ToggleEditQuestion(int index)
     {
         if (editingIndex == index)
@@ -220,22 +237,64 @@ else
     private void SaveAnswers()
     {
         survey.Questions = JsonConvert.SerializeObject(editanswers);
-        
+
         DbRepository.UpdateForm(survey);
         editingIndex = null;
     }
-    
+
     public class DropdownItem
     {
         public int Id { get; set; }
         public string Name { get; set; }
     }
-    
+
     private List<DropdownItem> items;
 
     private void OnChange(object value)
     {
         dropdownIndex = (int)value;
-        StateHasChanged(); // Force UI to update
     }
+
+    private Dictionary<int, SurveyCategoryTotal> sortingData = new Dictionary<int, SurveyCategoryTotal>();
+
+    private void SortingDropDownData()
+    {
+        List<string[]> targetData = new List<string[]>();
+        foreach (SurveyAnswer answer in answers)
+        {
+            string[] answerData = JsonConvert.DeserializeObject<string[]>(answer.Answers);
+            targetData.Add(answerData);
+        }
+
+        for (int i = 0; i < questionList.Length; i++)
+        {
+            if (!sortingData.ContainsKey(i))
+            {
+                sortingData.Add(i, new SurveyCategoryTotal()
+                {
+                    title = questionList[i],
+                    answer = new Dictionary<string, int>()
+                });
+            }
+
+            foreach (var answer in targetData)
+            {
+                if (sortingData[i].answer.ContainsKey(answer[i]))
+                {
+                    sortingData[i].answer[answer[i]] += 1;
+                }
+                else
+                {
+                    sortingData[i].answer.Add(answer[i], 1);
+                }
+            }
+        }
+    }
+
+    private class SurveyCategoryTotal
+    {
+        public string title { get; set; }
+        public Dictionary<string, int> answer;
+    }
+
 }
