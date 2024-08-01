@@ -1,0 +1,56 @@
+@using Survey.Models
+@code {
+    [Parameter] public int DropdownIndex { get; set; }
+    [Parameter] public List<FormInfo.DropdownItem> Items { get; set; }
+    [Parameter] public Dictionary<int, SurveyInfo.SurveyCategoryTotal> SortingData { get; set; }
+    [Parameter] public EventCallback<object> OnChange { get; set; }
+}
+
+<div class="row my-3">
+<RadzenDropDown @bind-Value="DropdownIndex"
+                Data="@Items"
+                TextProperty="Name"
+                ValueProperty="Id"
+                Change="OnChange"
+                Placeholder="Select an item"
+                Style="width: 200px;" />
+    
+<div class="col-sm-12 col-lg-12">
+    @if (DropdownIndex < 0)
+    {
+        @foreach (var data in SortingData)
+        {
+            <RadzenCard Style="margin-bottom: 3rem;">
+                <RadzenText Text=@(data.Value.title) TextStyle="TextStyle.H5" Style="margin-bottom: 1rem;"/>
+                @foreach (var answer in data.Value.answer)
+                {
+                    <RadzenCard Style="margin-bottom: 1px;">
+                        <div class="flex-container">
+                            <RadzenText Text=@($"{answer.Key}") TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+                            <span class="flex-spacer"/>
+                            <RadzenText Text=@($"답변 : {answer.Value}개") TextStyle="TextStyle.Body2"/>
+                        </div>
+                    </RadzenCard>
+                }
+            </RadzenCard>
+        }
+    }
+    else
+    {
+        var totalData = SortingData[DropdownIndex];
+        <RadzenCard Style="margin-bottom: 2rem;">
+            <RadzenText Text=@(totalData.title) TextStyle="TextStyle.H5" Style="margin-bottom: 1rem;"/>
+            @foreach (var answer in totalData.answer)
+            {
+                <RadzenCard Style="margin-bottom: 1px;">
+                    <div class="flex-container">
+                        <RadzenText Text=@($"{answer.Key}") TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+                        <span class="flex-spacer"/>
+                        <RadzenText Text=@($"답변 : {answer.Value}개") TextStyle="TextStyle.Body2"/>
+                    </div>
+                </RadzenCard>
+            }
+        </RadzenCard>
+    }
+</div>
+</div>

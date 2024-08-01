@@ -1,0 +1,31 @@
+@using Survey.Models
+@code {
+    [Parameter] public SurveyInfo.Answer[] Answers { get; set; }
+    [Parameter] public string[] QuestionList { get; set; }
+}
+
+<div class="row my-1">
+    <div class="col-sm-12 col-lg-12">
+        @foreach (SurveyInfo.Answer answer in Answers)
+        {
+            <RadzenCard Style="margin-bottom: 2rem;">
+                @{
+                    <RadzenText Text=@(answer.user) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+                    int answerIndex = 0;
+                    foreach (var ans in answer.detail.userAnswer)
+                    {
+                        <RadzenCard Style="margin-bottom: 2px;">
+                            <div>@if (answerIndex < QuestionList.Length)
+                                 {
+                                     <RadzenText Text=@($"Q{answerIndex + 1}. {QuestionList[answerIndex]}") TextStyle="TextStyle.H6"/>
+                                     answerIndex++;
+                                 }
+                                <RadzenText Text=@(ans) TextStyle="TextStyle.Body2"/>
+                            </div>
+                        </RadzenCard>
+                    }
+                }
+            </RadzenCard>
+        }
+    </div>
+</div>
