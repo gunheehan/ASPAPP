@@ -20,10 +20,11 @@
 
 <div class="row my-3 justify-content-center">
     <RadzenColumn Size="12" SizeMD="8">
-        <RadzenCard Style="width: 50%;">
+        <RadzenCard Style="width: 100%;">
             <div class="d-flex justify-content-between align-items-center">
                 <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">질문지</RadzenText>
-                <RadzenButton Click=@AddTextArea Text="질문 추가" Icon="add_circle" ButtonStyle="ButtonStyle.Light" />
+                <RadzenButton Click=@(() => AddTextArea(SurveyInfo.SurveyType.Subjective)) Text="주관식 질문 추가" Icon="add_circle" ButtonStyle="ButtonStyle.Light" />
+                <RadzenButton Click=@(() => AddTextArea(SurveyInfo.SurveyType.MultipleChoice)) Text="객관식 질문 추가" Icon="add_circle" ButtonStyle="ButtonStyle.Light" />
             </div>
             <RadzenRow Gap="2rem" RowGap="2rem" Class="rz-m-0 rz-m-md-12">
                 @foreach (var input in questioninputs)
@@ -31,7 +32,21 @@
                 <RadzenColumn Size="12" SizeMD="8">
                     <RadzenCard Style="width: 100%;">
                         <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">질문</RadzenText>
-                        <RadzenTextArea @bind-Value="input.Value" Style="width: 100%;" aria-label="TextArea"/>
+                        <RadzenTextArea @bind-Value="input.value" Style="width: 100%;" aria-label="TextArea"/>
+
+                        @if (input.type == SurveyInfo.SurveyType.MultipleChoice)
+                        {
+                        <RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H4">객관식 선택지</RadzenText>
+                        @for (int i = 0; i < input.Choices.Count; i++)
+                        {
+                            int index = i;
+                            <RadzenTextBox @bind-Value="input.Choices[index]"
+                                           Style="width: 100%;"
+                                           aria-label="ChoiceTextBox"/>
+                        }
+
+                        <RadzenButton Click=@(() => AddChoice(input)) Text="선택지 추가" Icon="add_circle" ButtonStyle="ButtonStyle.Light" />
+                        }
                     </RadzenCard>
                 </RadzenColumn>
                 }
@@ -39,6 +54,7 @@
         </RadzenCard>
     </RadzenColumn>
 </div>
+
 
 <div class="row my-3 justify-content-center">
     <RadzenColumn Size="12" SizeMD="8">
@@ -49,28 +65,45 @@
     </RadzenColumn>
 </div>
 
-<RadzenButton Click=@SaveTextAreas Text="Send" Size="ButtonSize.Medium" />
+<RadzenButton Click=@SaveQuestions Text="Send" Size="ButtonSize.Medium" />
 
 @code {
-    private List<InputModel> questioninputs = new();
+    private List<QuestionInputModel> questioninputs = new();
+    private List<SurveyInfo.QuestionData> questionDataList = new();
     private InputModel titleinput = new();
     private InputModel createrinput = new();
 
     protected override async Task OnInitializedAsync()
     {
-        AddTextArea();
-        StateHasChanged(); // Force UI to update
+        StateHasChanged();
     }
-    private void AddTextArea()
+    private void AddTextArea(SurveyInfo.SurveyType type)
     {
-        questioninputs.Add(new InputModel());
-        StateHasChanged(); // Force UI to update
+        var newInput = new QuestionInputModel { type = type };
+        if (type == SurveyInfo.SurveyType.MultipleChoice)
+        {
+            newInput.Choices.Add(string.Empty);
+            newInput.Choices.Add(string.Empty);
+        }
+        questioninputs.Add(newInput);
+        StateHasChanged();
     }
-
-    private void SaveTextAreas()
+    
+    private void AddChoice(QuestionInputModel input)
     {
-        var values = questioninputs.Select(i => i.Value).ToArray();
-
+        input.Choices.Add(string.Empty);
+        StateHasChanged();
+    }
+    
+    private void SaveQuestions()
+    {
+        questionDataList = questioninputs.Select(input => new SurveyInfo.QuestionData
+        {
+            question = input.value,
+            type = input.type,
+            choiceArr = input.Choices.ToArray()
+        }).ToList();
+        
         SurveyForm newForm = new SurveyForm
         {
             Title = titleinput.Value,
@@ -78,15 +111,24 @@
             CreateTime = DateTime.Now
         };
         
+        var values = JsonConvert.SerializeObject(questionDataList);
+        
         newForm.Questions = JsonConvert.SerializeObject(values);
         
         DbRepository.CreateForm(newForm);
-        
+
         Navigation.NavigateTo("/");
     }
 
     private class InputModel
     {
         public string Value { get; set; }
+    }
+
+    private class QuestionInputModel
+    {
+        public string value { get; set; }
+        public SurveyInfo.SurveyType type { get; set; }
+        public List<string> Choices { get; set; } = new List<string>();
     }
 }

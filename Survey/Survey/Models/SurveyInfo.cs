@@ -20,4 +20,17 @@ public class SurveyInfo
         public string title { get; set; }
         public Dictionary<string, int> answer { get; set; } = new();
     }
+
+    public enum SurveyType
+    {
+        Subjective,
+        MultipleChoice
+    }
+[Serializable]
+    public class QuestionData
+    {
+        public string question;
+        public SurveyType type;
+        public string[] choiceArr;
+    }
 }
