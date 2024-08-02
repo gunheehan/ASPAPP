@@ -1,5 +1,6 @@
+@using Survey.Models
 @code {
-    [Parameter] public string[] QuestionList { get; set; }
+    [Parameter] public List<SurveyInfo.QuestionData> QuestionList { get; set; }
     [Parameter] public List<string> EditAnswers { get; set; }
     [Parameter] public int? EditingIndex { get; set; }
     [Parameter] public EventCallback<int> ToggleEditQuestion { get; set; }

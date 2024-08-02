@@ -85,7 +85,7 @@ else
     [SupplyParameterFromForm] private SurveyForm? survey { get; set; }
     private SurveyInfo.Answer[] answerData { get; set; }
 
-    private string[] questionList = null;
+    private List<SurveyInfo.QuestionData> questionList = null;
     private List<string> editanswers = new List<string>();
     private int selectedIndex = 0;
     private int? editingIndex = null;
@@ -105,17 +105,14 @@ else
 
         survey = await DbRepository.GetForm(key);
 
-        questionList = JsonConvert.DeserializeObject<string[]>(survey.Questions);
-        editanswers = new List<string>(questionList);
+        questionList = JsonConvert.DeserializeObject<List<SurveyInfo.QuestionData>>(survey.Questions);
+
         IEnumerable<SurveyAnswer> answers = await DbRepository.GetAnswers(key);
         
         answerData = answers.Select(data => new SurveyInfo.Answer
         {
             title = data.Title,
-            detail = new SurveyInfo.AnswerDetail
-            {
-                userAnswer = JsonConvert.DeserializeObject<string[]>(data.Answers)
-            },
+            detail = JsonConvert.DeserializeObject<SurveyInfo.QuestionData[]>(data.Answers),
             user = data.UserId,
             createTime = data.CreateTime.GetValueOrDefault()
         }).ToArray();
@@ -127,31 +124,31 @@ else
     private void SetDropDownItems()
     {
         items.Add(new DropdownItem { Id = -1, Name = "전체" });
-        for (int i = 0; i < questionList.Length; i++)
+        for (int i = 0; i < questionList.Count(); i++)
         {
-            items.Add(new DropdownItem { Id = i, Name = questionList[i] });
+            items.Add(new DropdownItem { Id = i, Name = questionList[i].question });
         }
     }
 
     private void InitializeSortingData()
     {
-        for (int i = 0; i < questionList.Length; i++)
-        {
-            sortingData[i] = new SurveyInfo.SurveyCategoryTotal { title = questionList[i], answer = new Dictionary<string, int>() };
-            SurveyInfo.Answer newAnswer = new();
-            newAnswer.title = questionList[i];
-            foreach (var answer in answerData)
-            {
-                if (sortingData[i].answer.ContainsKey(answer.detail.userAnswer[i]))
-                {
-                    sortingData[i].answer[answer.detail.userAnswer[i]] += 1;
-                }
-                else
-                {
-                    sortingData[i].answer[answer.detail.userAnswer[i]] = 1;
-                }
-            }
-        }
+        // for (int i = 0; i < questionList.Length; i++)
+        // {
+        //     sortingData[i] = new SurveyInfo.SurveyCategoryTotal { title = questionList[i], answer = new Dictionary<string, int>() };
+        //     SurveyInfo.Answer newAnswer = new();
+        //     newAnswer.title = questionList[i];
+        //     foreach (var answer in answerData)
+        //     {
+        //         if (sortingData[i].answer.ContainsKey(answer.detail.userAnswer[i]))
+        //         {
+        //             sortingData[i].answer[answer.detail.userAnswer[i]] += 1;
+        //         }
+        //         else
+        //         {
+        //             sortingData[i].answer[answer.detail.userAnswer[i]] = 1;
+        //         }
+        //     }
+        // }
     }
 
     private void ToggleEditQuestion(int index)
