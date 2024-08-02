@@ -107,13 +107,10 @@
         SurveyForm newForm = new SurveyForm
         {
             Title = titleinput.Value,
+            Questions = JsonConvert.SerializeObject(questionDataList),
             Constructor = createrinput.Value,
             CreateTime = DateTime.Now
         };
-        
-        var values = JsonConvert.SerializeObject(questionDataList);
-        
-        newForm.Questions = JsonConvert.SerializeObject(values);
         
         DbRepository.CreateForm(newForm);
 
