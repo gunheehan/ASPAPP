@@ -1,31 +1,38 @@
 @using Survey.Models
 @code {
     [Parameter] public SurveyInfo.Answer[] Answers { get; set; }
-    [Parameter] public List<SurveyInfo.QuestionData> QuestionList { get; set; }
 }
 
-<div class="row my-1">
-    <div class="col-sm-12 col-lg-12">
-        @foreach (SurveyInfo.Answer answer in Answers)
-        {
-            <RadzenCard Style="margin-bottom: 2rem;">
-                @{
-                    <RadzenText Text=@(answer.user) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
-                    int answerIndex = 0;
-                    @* foreach (var ans in answer.detail.userAnswer) *@
-                    @* { *@
-                    @*     <RadzenCard Style="margin-bottom: 2px;"> *@
-                    @*         <div>@if (answerIndex < QuestionList.Length) *@
-                    @*              { *@
-                    @*                  <RadzenText Text=@($"Q{answerIndex + 1}. {QuestionList[answerIndex]}") TextStyle="TextStyle.H6"/> *@
-                    @*                  answerIndex++; *@
-                    @*              } *@
-                    @*             <RadzenText Text=@(ans) TextStyle="TextStyle.Body2"/> *@
-                    @*         </div> *@
-                    @*     </RadzenCard> *@
-                    @* } *@
-                }
-            </RadzenCard>
-        }
+@if (Answers.Length < 1)
+{
+    <div class="row my-1">
+        <div class="col-sm-12 col-lg-12">
+            <RadzenText Text=@("아직 작성된 답변이 없습니다... 재공지를 부탁드립니다...") TextStyle="TextStyle.Body2"/>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="row my-1">
+        <div class="col-sm-12 col-lg-12">
+            @foreach (SurveyInfo.Answer answer in Answers)
+            {
+                <RadzenCard Style="margin-bottom: 2rem;">
+                    @{
+                        <RadzenText Text=@(answer.user) TextStyle="TextStyle.Body2" Style="margin-bottom: 1rem;"/>
+
+                        foreach (var (answer, index) in answer.detail.Select((q, idx) => (q, idx)))
+                        {
+                            <RadzenCard Style="margin-bottom: 2px;">
+                                <div>
+                                    <RadzenText Text=@($"Q{index}. {answer.question}") TextStyle="TextStyle.H6"/>
+                                    <RadzenText Text=@(answer.userAnswer) TextStyle="TextStyle.Body2"/>
+                                </div>
+                            </RadzenCard>
+                        }
+                    }
+                </RadzenCard>
+            }
+        </div>
+    </div>
+}

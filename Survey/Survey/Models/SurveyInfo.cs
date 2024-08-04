@@ -5,9 +5,15 @@ public class SurveyInfo
     public class Answer
     {
         public string title;
-        public QuestionData[] detail;
+        public AnswerDetail[] detail;
         public string user;
         public DateTime createTime;
+    }
+
+    public class AnswerDetail
+    {
+        public string question;
+        public string userAnswer;
     }
     
     public class SurveyCategoryTotal

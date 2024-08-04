@@ -27,8 +27,7 @@ else
             </RadzenTabsItem>
             <RadzenTabsItem Text="Answers">
                 <FormInfoAnswerView 
-                    Answers="answerData" 
-                    QuestionList="questionList" />
+                    Answers="answerData"/>
             </RadzenTabsItem>
             <RadzenTabsItem Text="Total">
                 <FormInfoTotalView 
@@ -106,7 +105,7 @@ else
         answerData = answers.Select(data => new SurveyInfo.Answer
         {
             title = data.Title,
-            detail = JsonConvert.DeserializeObject<SurveyInfo.QuestionData[]>(data.Answers),
+            detail = JsonConvert.DeserializeObject<SurveyInfo.AnswerDetail[]>(data.Answers),
             user = data.UserId,
             createTime = data.CreateTime.GetValueOrDefault()
         }).ToArray();
@@ -126,23 +125,23 @@ else
 
     private void InitializeSortingData()
     {
-        // for (int i = 0; i < questionList.Length; i++)
-        // {
-        //     sortingData[i] = new SurveyInfo.SurveyCategoryTotal { title = questionList[i], answer = new Dictionary<string, int>() };
-        //     SurveyInfo.Answer newAnswer = new();
-        //     newAnswer.title = questionList[i];
-        //     foreach (var answer in answerData)
-        //     {
-        //         if (sortingData[i].answer.ContainsKey(answer.detail.userAnswer[i]))
-        //         {
-        //             sortingData[i].answer[answer.detail.userAnswer[i]] += 1;
-        //         }
-        //         else
-        //         {
-        //             sortingData[i].answer[answer.detail.userAnswer[i]] = 1;
-        //         }
-        //     }
-        // }
+        for (int i = 0; i < questionList.Count(); i++)
+        {
+            sortingData[i] = new SurveyInfo.SurveyCategoryTotal { title = questionList[i].question, answer = new Dictionary<string, int>() };
+            SurveyInfo.Answer newAnswer = new();
+            newAnswer.title = questionList[i].question;
+            foreach (var answer in answerData)
+            {
+                if (sortingData[i].answer.ContainsKey(answer.detail[i].userAnswer))
+                {
+                    sortingData[i].answer[answer.detail[i].userAnswer] += 1;
+                }
+                else
+                {
+                    sortingData[i].answer[answer.detail[i].userAnswer] = 1;
+                }
+            }
+        }
     }
 
     private void OnChange(object value)
