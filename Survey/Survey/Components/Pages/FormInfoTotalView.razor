@@ -1,7 +1,7 @@
 @using Survey.Models
 @code {
     [Parameter] public int DropdownIndex { get; set; }
-    [Parameter] public List<FormInfo.DropdownItem> Items { get; set; }
+    [Parameter] public List<FormInfoPage.DropdownItem> Items { get; set; }
     [Parameter] public Dictionary<int, SurveyInfo.SurveyCategoryTotal> SortingData { get; set; }
     [Parameter] public EventCallback<object> OnChange { get; set; }
 }

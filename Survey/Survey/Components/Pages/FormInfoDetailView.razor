@@ -1,34 +1,27 @@
 @using Survey.Models
 @code {
     [Parameter] public List<SurveyInfo.QuestionData> QuestionList { get; set; }
-    [Parameter] public List<string> EditAnswers { get; set; }
-    [Parameter] public int? EditingIndex { get; set; }
-    [Parameter] public EventCallback<int> ToggleEditQuestion { get; set; }
-    [Parameter] public EventCallback SaveAnswers { get; set; }
 }
 
 <div class="row my-1">
     <div class="col-sm-12 col-lg-12">
-        @foreach (var (question, index) in QuestionList.Select((q, idx) => (q, idx)))
+        @foreach (var question in QuestionList)
         {
             <RadzenCard Style="margin-bottom: 2rem;">
                 <div>
-                    <div>
-                        <div class="clickable-text" @onclick="() => ToggleEditQuestion.InvokeAsync(index)">
-                            @($"지문 {index + 1}")
-                        </div>
-                    </div>
-                    @if (EditingIndex == index)
+                    <RadzenText Text=@(question.question) TextStyle="TextStyle.H5"/>
+
+                    @if (question.type == SurveyInfo.SurveyType.MultipleChoice)
                     {
-                        <RadzenTextArea @bind-Value="EditAnswers[index]" Style="width: 100%" Placeholder="Enter your answer here..."/>
-                    }
-                    else
-                    {
-                        <RadzenText Text=@(EditAnswers[index]) TextStyle="TextStyle.H6"/>
+                        foreach (string choice in question.choiceArr)
+                        {
+                            <RadzenCard Style="margin-bottom: 1rem;">
+                                <RadzenText Text=@(choice) TextStyle="TextStyle.H6"/>
+                            </RadzenCard>
+                        }
                     }
                 </div>
             </RadzenCard>
         }
-        <RadzenButton Text="질문지 변경" Click="SaveAnswers" Style="margin-top: 2rem; margin-bottom: 4rem; background-color: #007bff"/>
     </div>
 </div>

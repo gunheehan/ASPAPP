@@ -23,11 +23,7 @@ else
         <Tabs>
             <RadzenTabsItem Text="Questions">
                 <FormInfoDetailView 
-                    QuestionList="questionList" 
-                    EditAnswers="editanswers" 
-                    EditingIndex="editingIndex" 
-                    ToggleEditQuestion="ToggleEditQuestion"
-                    SaveAnswers="SaveAnswers" />
+                    QuestionList="questionList" />
             </RadzenTabsItem>
             <RadzenTabsItem Text="Answers">
                 <FormInfoAnswerView 
@@ -86,9 +82,7 @@ else
     private SurveyInfo.Answer[] answerData { get; set; }
 
     private List<SurveyInfo.QuestionData> questionList = null;
-    private List<string> editanswers = new List<string>();
     private int selectedIndex = 0;
-    private int? editingIndex = null;
     private int dropdownIndex = -1;
     private List<DropdownItem> items = new List<DropdownItem>();
     private Dictionary<int, SurveyInfo.SurveyCategoryTotal> sortingData = new Dictionary<int, SurveyInfo.SurveyCategoryTotal>();
@@ -149,18 +143,6 @@ else
         //         }
         //     }
         // }
-    }
-
-    private void ToggleEditQuestion(int index)
-    {
-        editingIndex = editingIndex == index ? null : index;
-    }
-
-    private void SaveAnswers()
-    {
-        survey.Questions = JsonConvert.SerializeObject(editanswers);
-        DbRepository.UpdateForm(survey);
-        editingIndex = null;
     }
 
     private void OnChange(object value)
